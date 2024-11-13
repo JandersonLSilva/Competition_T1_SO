@@ -12,7 +12,7 @@
 // using namespace std; // para evitar escrever  std::, para referênciar a classe padrão
 using namespace tbb; // para evitar de escrever tbb::, para referênciar a classe Threading Building Blocks
 
-float sequential_performance(const int LENGHT){
+float sequential_performance(const int LENGHT, std::ofstream& file){
 
     std::vector<int> array(LENGHT); // Declarando uma collection array do tipo int com LENGTH elementos todos inicializados com 1
 
@@ -32,11 +32,12 @@ float sequential_performance(const int LENGHT){
 
     /// std::cout << "SOMA: " << sum << std::endl;
     std::cout << "Sequencial - Tempo de execução: " << duration.count() << " segundos." << std::endl; // Mostrando uma saída de dados especificando o intervalo de tempo entre as duas marcações
+    file << "Sequencial - Tempo de execução: " << duration.count() << " segundos." << std::endl;
 
     return duration.count(); // Retornando também a duração
 }
 
-float parallel_performance_omp(const int LENGHT){
+float parallel_performance_omp(const int LENGHT, std::ofstream& file){
     std::vector<int> array(LENGHT);
     int sum = 0;
 
@@ -58,11 +59,12 @@ float parallel_performance_omp(const int LENGHT){
 
     // std::cout << "SOMA: " << sum << std::endl;
     std::cout << "Paralelo (openmp) - Tempo de execução: " << duration.count() << " segundos." << std::endl;
+    file << "Paralelo (openmp) - Tempo de execução: " << duration.count() << " segundos." << std::endl;
 
     return duration.count();
 }
 
-float parallel_performance_tbb(const int LENGHT){
+float parallel_performance_tbb(const int LENGHT, std::ofstream& file){
     std::vector<int> array(LENGHT);
     std::vector<int> partial_sums(4, 0);
     int total_sum = 0;
@@ -95,6 +97,7 @@ float parallel_performance_tbb(const int LENGHT){
 
     // std::cout << "SOMA: " << total_sum << std::endl;
     std::cout << "Paralelo (tbb) - Tempo de execução: " << duration.count() << " segundos." << std::endl;
+    file << "Paralelo (tbb) - Tempo de execução: " << duration.count() << " segundos." << std::endl;
 
     return duration.count();
 }
@@ -123,26 +126,43 @@ int main(int argc, char** argv){
     std::vector<float> parll_tbb_retr(30);
 
 
-    std::
+    std::ofstream file("logs/log.txt");
+
     for(int i = 0; i < 30; i++){
-        std::cout << "Execução nº" << i << ": " << std::endl;
-        sequ_retr[i] = sequential_performance(std::pow(10, (atoi(argv[1]) || 8) ));
+        std::cout << "Execução nº" << i+1 << ": " << std::endl;
+        file << "Execução nº" << i+1 << ": " << std::endl;
+        sequ_retr[i] = sequential_performance(std::pow(10, (atoi(argv[1]) || 8) ), file);
 
-        parll_omp_retr[i] = parallel_performance_omp(std::pow(10, (atoi(argv[1]) || 4) ));
+        parll_omp_retr[i] = parallel_performance_omp(std::pow(10, (atoi(argv[1]) || 4) ), file);
 
-        parll_tbb_retr[i] = parallel_performance_tbb(std::pow(10, (atoi(argv[1]) || 4) ));
+        parll_tbb_retr[i] = parallel_performance_tbb(std::pow(10, (atoi(argv[1]) || 4) ), file);
         std::cout << std::endl;
+        file << std::endl;
     }
 
     std::cout << std::endl;
+    file << std::endl;
+
+    // Mostrando a média Sequencial e inserindo no arquivo
     std::cout << "Média do Sequencial: " << calc_avarage(sequ_retr, 30) << " segundos." << std::endl;
+    file << "Média do Sequencial: " << calc_avarage(sequ_retr, 30) << " segundos." << std::endl;
+
     std::cout << "Desvio Padrão do Sequencial: " << calc_std_deviation(sequ_retr, calc_avarage(sequ_retr, 30), 30) << " segundos." << std::endl << std::endl;
+    file << "Desvio Padrão do Sequencial: " << calc_std_deviation(sequ_retr, calc_avarage(sequ_retr, 30), 30) << " segundos." << std::endl << std::endl;
 
     std::cout << "Média do Paralelo (openmp): " << calc_avarage(parll_omp_retr, 30) << " segundos." << std::endl;
+    file << "Média do Paralelo (openmp): " << calc_avarage(parll_omp_retr, 30) << " segundos." << std::endl;
+
     std::cout << "Desvio Padrão do Paralelo (openmp): " << calc_std_deviation(parll_omp_retr, calc_avarage(parll_omp_retr, 30), 30) << " segundos." << std::endl << std::endl;
+    file << "Desvio Padrão do Paralelo (openmp): " << calc_std_deviation(parll_omp_retr, calc_avarage(parll_omp_retr, 30), 30) << " segundos." << std::endl << std::endl;
 
     std::cout << "Média do Paralelo (tbb): " << calc_avarage(parll_tbb_retr, 30) << " segundos." << std::endl;
+    file << "Média do Paralelo (tbb): " << calc_avarage(parll_tbb_retr, 30) << " segundos." << std::endl;
+
     std::cout << "Desvio Padrão do Paralelo (tbb): " << calc_std_deviation(parll_tbb_retr, calc_avarage(parll_tbb_retr, 30), 30) << " segundos." << std::endl << std::endl;
+    file << "Desvio Padrão do Paralelo (tbb): " << calc_std_deviation(parll_tbb_retr, calc_avarage(parll_tbb_retr, 30), 30) << " segundos." << std::endl << std::endl;
+
+    file.close();
 
     return 0;
 }
