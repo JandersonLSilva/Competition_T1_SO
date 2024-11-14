@@ -32,7 +32,7 @@ float sequential_performance(const int LENGHT, std::ofstream& file){
 
     /// std::cout << "SOMA: " << sum << std::endl;
     std::cout << "Sequencial - Tempo de execução: " << duration.count() << " segundos." << std::endl; // Mostrando uma saída de dados especificando o intervalo de tempo entre as duas marcações
-    file << "Sequencial - Tempo de execução: " << duration.count() << " segundos." << std::endl;
+    file << "Sequencial - Tempo de execução: " << duration.count() << " segundos." << std::endl; // Armazenando o tempo de execução dentro do arquivo
 
     return duration.count(); // Retornando também a duração
 }
@@ -59,7 +59,7 @@ float parallel_performance_omp(const int LENGHT, std::ofstream& file){
 
     // std::cout << "SOMA: " << sum << std::endl;
     std::cout << "Paralelo (openmp) - Tempo de execução: " << duration.count() << " segundos." << std::endl;
-    file << "Paralelo (openmp) - Tempo de execução: " << duration.count() << " segundos." << std::endl;
+    file << "Paralelo (openmp) - Tempo de execução: " << duration.count() << " segundos." << std::endl; // Armazenando o tempo de execução dentro do arquivo
 
     return duration.count();
 }
@@ -97,7 +97,7 @@ float parallel_performance_tbb(const int LENGHT, std::ofstream& file){
 
     // std::cout << "SOMA: " << total_sum << std::endl;
     std::cout << "Paralelo (tbb) - Tempo de execução: " << duration.count() << " segundos." << std::endl;
-    file << "Paralelo (tbb) - Tempo de execução: " << duration.count() << " segundos." << std::endl;
+    file << "Paralelo (tbb) - Tempo de execução: " << duration.count() << " segundos." << std::endl; // Armazenando o tempo de execução dentro do arquivo
 
     return duration.count();
 }
@@ -130,7 +130,7 @@ int main(int argc, char** argv){
 
     for(int i = 0; i < 30; i++){
         std::cout << "Execução nº" << i+1 << ": " << std::endl;
-        file << "Execução nº" << i+1 << ": " << std::endl;
+        file << "Execução nº" << i+1 << ": " << std::endl; // Armazenando o número da execução dentro do arquivo
         sequ_retr[i] = sequential_performance(std::pow(10, (atoi(argv[1]) || 8) ), file);
 
         parll_omp_retr[i] = parallel_performance_omp(std::pow(10, (atoi(argv[1]) || 4) ), file);
@@ -143,26 +143,31 @@ int main(int argc, char** argv){
     std::cout << std::endl;
     file << std::endl;
 
-    // Mostrando a média Sequencial e inserindo no arquivo
+    // Mostrando a Média do Sequencial e inserindo no arquivo
     std::cout << "Média do Sequencial: " << calc_avarage(sequ_retr, 30) << " segundos." << std::endl;
     file << "Média do Sequencial: " << calc_avarage(sequ_retr, 30) << " segundos." << std::endl;
 
+    // Mostrando a Desvio Padrão do Sequencial e inserindo no arquivo
     std::cout << "Desvio Padrão do Sequencial: " << calc_std_deviation(sequ_retr, calc_avarage(sequ_retr, 30), 30) << " segundos." << std::endl << std::endl;
     file << "Desvio Padrão do Sequencial: " << calc_std_deviation(sequ_retr, calc_avarage(sequ_retr, 30), 30) << " segundos." << std::endl << std::endl;
 
+    // Mostrando a Média do Paralelo (openmp) e inserindo no arquivo
     std::cout << "Média do Paralelo (openmp): " << calc_avarage(parll_omp_retr, 30) << " segundos." << std::endl;
     file << "Média do Paralelo (openmp): " << calc_avarage(parll_omp_retr, 30) << " segundos." << std::endl;
 
+    // Mostrando a Desvio Padrão do Paralelo (openmp) e inserindo no arquivo
     std::cout << "Desvio Padrão do Paralelo (openmp): " << calc_std_deviation(parll_omp_retr, calc_avarage(parll_omp_retr, 30), 30) << " segundos." << std::endl << std::endl;
     file << "Desvio Padrão do Paralelo (openmp): " << calc_std_deviation(parll_omp_retr, calc_avarage(parll_omp_retr, 30), 30) << " segundos." << std::endl << std::endl;
 
+    // Mostrando a Média do Paralelo (tbb) e inserindo no arquivo
     std::cout << "Média do Paralelo (tbb): " << calc_avarage(parll_tbb_retr, 30) << " segundos." << std::endl;
     file << "Média do Paralelo (tbb): " << calc_avarage(parll_tbb_retr, 30) << " segundos." << std::endl;
 
+    // Mostrando a Desvio Padrão do Paralelo (tbb) e inserindo no arquivo
     std::cout << "Desvio Padrão do Paralelo (tbb): " << calc_std_deviation(parll_tbb_retr, calc_avarage(parll_tbb_retr, 30), 30) << " segundos." << std::endl << std::endl;
     file << "Desvio Padrão do Paralelo (tbb): " << calc_std_deviation(parll_tbb_retr, calc_avarage(parll_tbb_retr, 30), 30) << " segundos." << std::endl << std::endl;
 
-    file.close();
+    file.close(); // Fechando o arquivo aberto
 
     return 0;
 }
