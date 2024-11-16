@@ -1,6 +1,8 @@
 import re
 import pandas as pd # É preciso ter o pandas instalado (pip install pandas)
 import tabulate as tab # É necessário ter o tabulate instalado (pip install tabulate)
+import matplotlib.pyplot as plt
+import numpy as np
 
 
 # Classe de Execuções
@@ -48,29 +50,33 @@ data = {
     'Parallel (tbb)': runtimes.tbb,
     'Parallel (openmp)': runtimes.omp
 }
+# Mostrando a tabela
 show_table(data)
 
 
+# Criando uma sequencia de números que será plotados nos gráficos sendo esses as execuções
+runs = np.arange(1, LENGTH+1)
+
+# Transformando os arrays comuns em arrays do NumPy que será necessário dentro do plot facilitando e permitindo os cáculos posteriormente
+runtimes_sequ = np.array(runtimes.sequ)
+runtimes_tbb = np.array(runtimes.tbb)
+runtimes_omp = np.array(runtimes.omp)
 
 
+# Criando gráficos de linha, passandos os argumentos a serem plotados e a legenda de cada linha do gráfico
+plt.plot(runs, runtimes_sequ, label='Sequential')
+plt.plot(runs, runtimes_tbb, label='Parallel (tbb)')
+plt.plot(runs, runtimes_omp, label='Parallel (openmp)')
 
+# Definindo os rótulos para linhas e colunas do gráfico
+plt.xlabel('Run')
+plt.ylabel('Times (seconds)')
 
+# Definindo o titulo do gráfico
+plt.title("Runtimes in 30 executions")
 
+# Adicionando uma legenda ao gráfico
+plt.legend()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#
+# Finalmente mostrando o gráfico
+plt.show()
