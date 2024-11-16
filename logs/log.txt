@@ -1,160 +1,160 @@
 Execução nº1: 
-Sequencial - Tempo de execução: 2.71e-07 segundos.
-Paralelo (openmp) - Tempo de execução: 0.00111124 segundos.
-Paralelo (tbb) - Tempo de execução: 0.000908501 segundos.
+Sequencial - Tempo de execução: 0.28539 segundos.
+Paralelo (openmp) - Tempo de execução: 0.000278723 segundos.
+Paralelo (tbb) - Tempo de execução: 0.00105399 segundos.
 
 Execução nº2: 
-Sequencial - Tempo de execução: 1.02e-07 segundos.
-Paralelo (openmp) - Tempo de execução: 0.00132189 segundos.
-Paralelo (tbb) - Tempo de execução: 2.1692e-05 segundos.
+Sequencial - Tempo de execução: 0.283967 segundos.
+Paralelo (openmp) - Tempo de execução: 8.9146e-05 segundos.
+Paralelo (tbb) - Tempo de execução: 0.000129245 segundos.
 
 Execução nº3: 
-Sequencial - Tempo de execução: 7.9e-08 segundos.
-Paralelo (openmp) - Tempo de execução: 0.00260738 segundos.
-Paralelo (tbb) - Tempo de execução: 0.000448296 segundos.
+Sequencial - Tempo de execução: 0.284405 segundos.
+Paralelo (openmp) - Tempo de execução: 5.9978e-05 segundos.
+Paralelo (tbb) - Tempo de execução: 0.000131048 segundos.
 
 Execução nº4: 
-Sequencial - Tempo de execução: 1.18e-07 segundos.
-Paralelo (openmp) - Tempo de execução: 0.000881841 segundos.
-Paralelo (tbb) - Tempo de execução: 3.0707e-05 segundos.
+Sequencial - Tempo de execução: 0.285211 segundos.
+Paralelo (openmp) - Tempo de execução: 7.8161e-05 segundos.
+Paralelo (tbb) - Tempo de execução: 0.000129237 segundos.
 
 Execução nº5: 
-Sequencial - Tempo de execução: 8.1e-08 segundos.
-Paralelo (openmp) - Tempo de execução: 0.000146329 segundos.
-Paralelo (tbb) - Tempo de execução: 1.0702e-05 segundos.
+Sequencial - Tempo de execução: 0.285113 segundos.
+Paralelo (openmp) - Tempo de execução: 7.2433e-05 segundos.
+Paralelo (tbb) - Tempo de execução: 0.000117954 segundos.
 
 Execução nº6: 
-Sequencial - Tempo de execução: 6.5e-08 segundos.
-Paralelo (openmp) - Tempo de execução: 0.000133536 segundos.
-Paralelo (tbb) - Tempo de execução: 9.939e-06 segundos.
+Sequencial - Tempo de execução: 0.283851 segundos.
+Paralelo (openmp) - Tempo de execução: 7.0821e-05 segundos.
+Paralelo (tbb) - Tempo de execução: 0.000103277 segundos.
 
 Execução nº7: 
-Sequencial - Tempo de execução: 7.5e-08 segundos.
-Paralelo (openmp) - Tempo de execução: 0.000130501 segundos.
-Paralelo (tbb) - Tempo de execução: 9.632e-06 segundos.
+Sequencial - Tempo de execução: 0.283789 segundos.
+Paralelo (openmp) - Tempo de execução: 5.5152e-05 segundos.
+Paralelo (tbb) - Tempo de execução: 9.9561e-05 segundos.
 
 Execução nº8: 
-Sequencial - Tempo de execução: 7.6e-08 segundos.
-Paralelo (openmp) - Tempo de execução: 0.000137476 segundos.
-Paralelo (tbb) - Tempo de execução: 1.1741e-05 segundos.
+Sequencial - Tempo de execução: 0.28405 segundos.
+Paralelo (openmp) - Tempo de execução: 6.7747e-05 segundos.
+Paralelo (tbb) - Tempo de execução: 0.000125301 segundos.
 
 Execução nº9: 
-Sequencial - Tempo de execução: 6.5e-08 segundos.
-Paralelo (openmp) - Tempo de execução: 0.000131544 segundos.
-Paralelo (tbb) - Tempo de execução: 1.0102e-05 segundos.
+Sequencial - Tempo de execução: 0.283631 segundos.
+Paralelo (openmp) - Tempo de execução: 6.8261e-05 segundos.
+Paralelo (tbb) - Tempo de execução: 0.000114503 segundos.
 
 Execução nº10: 
-Sequencial - Tempo de execução: 8.7e-08 segundos.
-Paralelo (openmp) - Tempo de execução: 7.1558e-05 segundos.
-Paralelo (tbb) - Tempo de execução: 4.038e-06 segundos.
+Sequencial - Tempo de execução: 0.283705 segundos.
+Paralelo (openmp) - Tempo de execução: 6.7934e-05 segundos.
+Paralelo (tbb) - Tempo de execução: 0.000128696 segundos.
 
 Execução nº11: 
-Sequencial - Tempo de execução: 5.5e-08 segundos.
-Paralelo (openmp) - Tempo de execução: 1.414e-05 segundos.
-Paralelo (tbb) - Tempo de execução: 3.774e-06 segundos.
+Sequencial - Tempo de execução: 0.285806 segundos.
+Paralelo (openmp) - Tempo de execução: 7.4052e-05 segundos.
+Paralelo (tbb) - Tempo de execução: 0.000126708 segundos.
 
 Execução nº12: 
-Sequencial - Tempo de execução: 6.6e-08 segundos.
-Paralelo (openmp) - Tempo de execução: 1.295e-05 segundos.
-Paralelo (tbb) - Tempo de execução: 3.751e-06 segundos.
+Sequencial - Tempo de execução: 0.283543 segundos.
+Paralelo (openmp) - Tempo de execução: 7.852e-05 segundos.
+Paralelo (tbb) - Tempo de execução: 0.000126088 segundos.
 
 Execução nº13: 
-Sequencial - Tempo de execução: 6.9e-08 segundos.
-Paralelo (openmp) - Tempo de execução: 3.014e-06 segundos.
-Paralelo (tbb) - Tempo de execução: 3.792e-06 segundos.
+Sequencial - Tempo de execução: 0.283911 segundos.
+Paralelo (openmp) - Tempo de execução: 7.1795e-05 segundos.
+Paralelo (tbb) - Tempo de execução: 0.000126785 segundos.
 
 Execução nº14: 
-Sequencial - Tempo de execução: 7.1e-08 segundos.
-Paralelo (openmp) - Tempo de execução: 3.319e-06 segundos.
-Paralelo (tbb) - Tempo de execução: 3.657e-06 segundos.
+Sequencial - Tempo de execução: 0.284218 segundos.
+Paralelo (openmp) - Tempo de execução: 7.1887e-05 segundos.
+Paralelo (tbb) - Tempo de execução: 0.000127718 segundos.
 
 Execução nº15: 
-Sequencial - Tempo de execução: 5.4e-08 segundos.
-Paralelo (openmp) - Tempo de execução: 2.616e-06 segundos.
-Paralelo (tbb) - Tempo de execução: 3.403e-06 segundos.
+Sequencial - Tempo de execução: 0.294902 segundos.
+Paralelo (openmp) - Tempo de execução: 6.8743e-05 segundos.
+Paralelo (tbb) - Tempo de execução: 0.000125413 segundos.
 
 Execução nº16: 
-Sequencial - Tempo de execução: 7.5e-08 segundos.
-Paralelo (openmp) - Tempo de execução: 2.471e-06 segundos.
-Paralelo (tbb) - Tempo de execução: 3.427e-06 segundos.
+Sequencial - Tempo de execução: 0.30961 segundos.
+Paralelo (openmp) - Tempo de execução: 0.000117898 segundos.
+Paralelo (tbb) - Tempo de execução: 0.000132202 segundos.
 
 Execução nº17: 
-Sequencial - Tempo de execução: 5.5e-08 segundos.
-Paralelo (openmp) - Tempo de execução: 2.942e-06 segundos.
-Paralelo (tbb) - Tempo de execução: 3.322e-06 segundos.
+Sequencial - Tempo de execução: 0.302221 segundos.
+Paralelo (openmp) - Tempo de execução: 6.9587e-05 segundos.
+Paralelo (tbb) - Tempo de execução: 0.000122068 segundos.
 
 Execução nº18: 
-Sequencial - Tempo de execução: 8.8e-08 segundos.
-Paralelo (openmp) - Tempo de execução: 2.898e-06 segundos.
-Paralelo (tbb) - Tempo de execução: 3.464e-06 segundos.
+Sequencial - Tempo de execução: 0.3065 segundos.
+Paralelo (openmp) - Tempo de execução: 0.00152349 segundos.
+Paralelo (tbb) - Tempo de execução: 0.000124294 segundos.
 
 Execução nº19: 
-Sequencial - Tempo de execução: 8.1e-08 segundos.
-Paralelo (openmp) - Tempo de execução: 2.593e-06 segundos.
-Paralelo (tbb) - Tempo de execução: 3.454e-06 segundos.
+Sequencial - Tempo de execução: 0.328015 segundos.
+Paralelo (openmp) - Tempo de execução: 0.00274425 segundos.
+Paralelo (tbb) - Tempo de execução: 0.000124802 segundos.
 
 Execução nº20: 
-Sequencial - Tempo de execução: 8.3e-08 segundos.
-Paralelo (openmp) - Tempo de execução: 2.615e-06 segundos.
-Paralelo (tbb) - Tempo de execução: 3.737e-06 segundos.
+Sequencial - Tempo de execução: 0.306048 segundos.
+Paralelo (openmp) - Tempo de execução: 0.000598239 segundos.
+Paralelo (tbb) - Tempo de execução: 9.4009e-05 segundos.
 
 Execução nº21: 
-Sequencial - Tempo de execução: 6.3e-08 segundos.
-Paralelo (openmp) - Tempo de execução: 0.000228893 segundos.
-Paralelo (tbb) - Tempo de execução: 0.000600385 segundos.
+Sequencial - Tempo de execução: 0.309635 segundos.
+Paralelo (openmp) - Tempo de execução: 0.00408776 segundos.
+Paralelo (tbb) - Tempo de execução: 9.5577e-05 segundos.
 
 Execução nº22: 
-Sequencial - Tempo de execução: 1.01e-07 segundos.
-Paralelo (openmp) - Tempo de execução: 6.8228e-05 segundos.
-Paralelo (tbb) - Tempo de execução: 0.00090565 segundos.
+Sequencial - Tempo de execução: 0.300929 segundos.
+Paralelo (openmp) - Tempo de execução: 6.7136e-05 segundos.
+Paralelo (tbb) - Tempo de execução: 0.000108371 segundos.
 
 Execução nº23: 
-Sequencial - Tempo de execução: 6.6e-08 segundos.
-Paralelo (openmp) - Tempo de execução: 0.000765243 segundos.
-Paralelo (tbb) - Tempo de execução: 1.8114e-05 segundos.
+Sequencial - Tempo de execução: 0.302027 segundos.
+Paralelo (openmp) - Tempo de execução: 7.1379e-05 segundos.
+Paralelo (tbb) - Tempo de execução: 9.4688e-05 segundos.
 
 Execução nº24: 
-Sequencial - Tempo de execução: 7.8e-08 segundos.
-Paralelo (openmp) - Tempo de execução: 0.000576277 segundos.
-Paralelo (tbb) - Tempo de execução: 0.000511381 segundos.
+Sequencial - Tempo de execução: 0.299478 segundos.
+Paralelo (openmp) - Tempo de execução: 6.8246e-05 segundos.
+Paralelo (tbb) - Tempo de execução: 0.000105142 segundos.
 
 Execução nº25: 
-Sequencial - Tempo de execução: 4.9e-08 segundos.
-Paralelo (openmp) - Tempo de execução: 9.9403e-05 segundos.
-Paralelo (tbb) - Tempo de execução: 0.000786617 segundos.
+Sequencial - Tempo de execução: 0.285739 segundos.
+Paralelo (openmp) - Tempo de execução: 6.9922e-05 segundos.
+Paralelo (tbb) - Tempo de execução: 0.000106754 segundos.
 
 Execução nº26: 
-Sequencial - Tempo de execução: 7.6e-08 segundos.
-Paralelo (openmp) - Tempo de execução: 7.8354e-05 segundos.
-Paralelo (tbb) - Tempo de execução: 1.4862e-05 segundos.
+Sequencial - Tempo de execução: 0.289995 segundos.
+Paralelo (openmp) - Tempo de execução: 7.0924e-05 segundos.
+Paralelo (tbb) - Tempo de execução: 0.000108104 segundos.
 
 Execução nº27: 
-Sequencial - Tempo de execução: 5.6e-08 segundos.
-Paralelo (openmp) - Tempo de execução: 9.0633e-05 segundos.
-Paralelo (tbb) - Tempo de execução: 1.5495e-05 segundos.
+Sequencial - Tempo de execução: 0.284074 segundos.
+Paralelo (openmp) - Tempo de execução: 6.7327e-05 segundos.
+Paralelo (tbb) - Tempo de execução: 0.000121812 segundos.
 
 Execução nº28: 
-Sequencial - Tempo de execução: 5.7e-08 segundos.
-Paralelo (openmp) - Tempo de execução: 8.9574e-05 segundos.
-Paralelo (tbb) - Tempo de execução: 1.41e-05 segundos.
+Sequencial - Tempo de execução: 0.284309 segundos.
+Paralelo (openmp) - Tempo de execução: 6.6408e-05 segundos.
+Paralelo (tbb) - Tempo de execução: 0.000108545 segundos.
 
 Execução nº29: 
-Sequencial - Tempo de execução: 8.7e-08 segundos.
-Paralelo (openmp) - Tempo de execução: 8.7096e-05 segundos.
-Paralelo (tbb) - Tempo de execução: 1.5366e-05 segundos.
+Sequencial - Tempo de execução: 0.284084 segundos.
+Paralelo (openmp) - Tempo de execução: 7.0099e-05 segundos.
+Paralelo (tbb) - Tempo de execução: 0.000139805 segundos.
 
 Execução nº30: 
-Sequencial - Tempo de execução: 6.5e-08 segundos.
-Paralelo (openmp) - Tempo de execução: 8.8098e-05 segundos.
-Paralelo (tbb) - Tempo de execução: 1.4399e-05 segundos.
+Sequencial - Tempo de execução: 0.290234 segundos.
+Paralelo (openmp) - Tempo de execução: 7.5358e-05 segundos.
+Paralelo (tbb) - Tempo de execução: 0.00010863 segundos.
 
 
-Média do Sequencial: 8.04667e-08 segundos.
-Desvio Padrão do Sequencial: 3.924e-08 segundos.
+Média do Sequencial: 0.291947 segundos.
+Desvio Padrão do Sequencial: 0.0113517 segundos.
 
-Média do Paralelo (openmp): 0.000296489 segundos.
-Desvio Padrão do Paralelo (openmp): 0.000558371 segundos.
+Média do Paralelo (openmp): 0.000368046 segundos.
+Desvio Padrão do Paralelo (openmp): 0.00089187 segundos.
 
-Média do Paralelo (tbb): 0.000146583 segundos.
-Desvio Padrão do Paralelo (tbb): 0.000290435 segundos.
+Média do Paralelo (tbb): 0.000148678 segundos.
+Desvio Padrão do Paralelo (tbb): 0.000171449 segundos.
 

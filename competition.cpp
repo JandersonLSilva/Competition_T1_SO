@@ -4,8 +4,6 @@
 #include <vector>
 // Biblioteca para medição tempo
 #include <chrono>
-// Biblioteca para manipular strings
-#include <string.h>
 
 // Declarando a biblioteca para poder usar algumas operações matemáticas
 #include <math.h>
@@ -17,50 +15,50 @@
 // Biblioteca para manipular arquivos
 #include <fstream>
 
-// using namespace std; // para evitar escrever  std::, para referênciar a classe padrão
+using namespace std; // para evitar escrever  std::, para referênciar a classe padrão
 using namespace tbb; // para evitar de escrever tbb::, para referênciar a classe Threading Building Blocks
 
 // Função que calcula o tempo de execução sequencial
-float sequential_runtime(const int LENGTH, std::ofstream& file){
+float sequential_runtime(const int LENGTH, ofstream& file){
     int sum = 0;
 
-    std::vector<int> array(LENGTH); // Declarando uma collection array do tipo int com LENGTH elementos todos inicializados com 1
+    vector<int> array(LENGTH); // Declarando uma collection array do tipo int com LENGTH elementos todos inicializados com 1
 
     // Inicializando o array com os valores de i
     for(int i = 0; i < LENGTH; i++) array[i] = i;
 
     // Gravando o tempo no inicio da soma
-    auto start = std::chrono::high_resolution_clock::now();
+    auto start = chrono::high_resolution_clock::now();
 
     // Somando os valores de cada posição do array
     for(int i = 0; i < LENGTH; i++) sum += array[i];
 
     // Marcando o tempo no final da da soma
-    auto end = std::chrono::high_resolution_clock::now();
+    auto end = chrono::high_resolution_clock::now();
 
     // Armazenando na váriavel duration do tipo double, definido dentro da classe duration
-    std::chrono::duration<double> duration = end - start;
+    chrono::duration<double> duration = end - start;
 
     // Mostrando uma saída de dados especificando o intervalo de tempo entre as duas marcações
-    std::cout << "Sequencial - Tempo de execução: " << duration.count() << " segundos." << std::endl;
+    cout << "Sequencial - Tempo de execução: " << duration.count() << " segundos." << endl;
 
     // Armazenando o tempo de execução dentro do arquivo
-    file << "Sequencial - Tempo de execução: " << duration.count() << " segundos." << std::endl;
+    file << "Sequencial - Tempo de execução: " << duration.count() << " segundos." << endl;
 
     // Retornando também a duração
     return duration.count();
 }
 
 // Função que calcula o tempo de execução paralela
-float parallel_runtime_omp(const int LENGTH, std::ofstream& file){
-    std::vector<int> array(LENGTH);
+float parallel_runtime_omp(const int LENGTH, ofstream& file){
+    vector<int> array(LENGTH);
     int sum = 0;
 
     // Inicializando o array com os valores de i
     for(int i = 0; i < LENGTH; i++) array[i] = i;
 
     // Gravando o tempo no inicio da soma
-    auto start = std::chrono::high_resolution_clock::now();
+    auto start = chrono::high_resolution_clock::now();
 
     /* Definindo que o próximo for será executada de forma paralela e que o soma será compartilhada
     entre as threads e que as atualizações nessa váriavel será feita usando a operação soma */
@@ -70,24 +68,24 @@ float parallel_runtime_omp(const int LENGTH, std::ofstream& file){
     for(int i = 0; i < LENGTH; i++) sum += array[i];
 
     // Marcando o tempo no final da da soma
-    auto end = std::chrono::high_resolution_clock::now();
+    auto end = chrono::high_resolution_clock::now();
 
     // Armazenando na váriavel duration do tipo double, definido dentro da classe duration
-    std::chrono::duration<double> duration = end - start;
+    chrono::duration<double> duration = end - start;
 
     // Mostrando uma saída de dados especificando o intervalo de tempo entre as duas marcações
-    std::cout << "Paralelo (openmp) - Tempo de execução: " << duration.count() << " segundos." << std::endl;
+    cout << "Paralelo (openmp) - Tempo de execução: " << duration.count() << " segundos." << endl;
 
     // Armazenando o tempo de execução dentro do arquivo
-    file << "Paralelo (openmp) - Tempo de execução: " << duration.count() << " segundos." << std::endl;
+    file << "Paralelo (openmp) - Tempo de execução: " << duration.count() << " segundos." << endl;
 
     return duration.count();
 }
 
 // Função que calcula o tempo de execução paralela
-float parallel_runtime_tbb(const int LENGTH, std::ofstream& file){
-    std::vector<int> array(LENGTH);
-    std::vector<int> partial_sums(4, 0);
+float parallel_runtime_tbb(const int LENGTH, ofstream& file){
+    vector<int> array(LENGTH);
+    vector<int> partial_sums(4, 0);
     int total_sum = 0;
 
     // Inicializando o array com os valores de i
@@ -96,7 +94,7 @@ float parallel_runtime_tbb(const int LENGTH, std::ofstream& file){
     blocked_range<int> range(0, LENGTH);
 
     // Gravando o tempo no inicio da soma
-    auto start = std::chrono::high_resolution_clock::now();
+    auto start = chrono::high_resolution_clock::now();
 
     // Função anônima lambda que divide o bloco de execução em threads para serem executada de forma paralela
     auto h = [&](const blocked_range<int>r) {
@@ -117,21 +115,21 @@ float parallel_runtime_tbb(const int LENGTH, std::ofstream& file){
     for (auto partial_sum : partial_sums) total_sum += partial_sum;
 
     // Marcando o tempo no final da da soma
-    auto end = std::chrono::high_resolution_clock::now();
+    auto end = chrono::high_resolution_clock::now();
 
     // Armazenando na váriavel duration do tipo double, definido dentro da classe duration
-    std::chrono::duration<double> duration = end - start;
+    chrono::duration<double> duration = end - start;
 
-    std::cout << "Paralelo (tbb) - Tempo de execução: " << duration.count() << " segundos." << std::endl;
+    cout << "Paralelo (tbb) - Tempo de execução: " << duration.count() << " segundos." << endl;
 
     // Armazenando o tempo de execução dentro do arquivo
-    file << "Paralelo (tbb) - Tempo de execução: " << duration.count() << " segundos." << std::endl;
+    file << "Paralelo (tbb) - Tempo de execução: " << duration.count() << " segundos." << endl;
 
     return duration.count();
 }
 
 // Função que calcula a média de um determinado vetor
-float calc_average(std::vector<float> vector, const int LENGTH){
+float calc_average(vector<float> vector, const int LENGTH){
     float sum = 0;
     for(int i = 0; i < LENGTH; i++){
         sum += vector[i];
@@ -141,7 +139,7 @@ float calc_average(std::vector<float> vector, const int LENGTH){
 }
 
 // Função que calcula o desvio padrão de um determinado vetor, com base na média
-float calc_std_deviation(std::vector<float> vector, const int LENGTH){
+float calc_std_deviation(vector<float> vector, const int LENGTH){
     float std_devtion = 0;
     float avg = calc_average(vector, LENGTH);
 
@@ -153,57 +151,54 @@ float calc_std_deviation(std::vector<float> vector, const int LENGTH){
     return sqrt((std_devtion / (LENGTH - 1)));
 }
 
+
+void show_average_deviation(ofstream& file, const string name, vector<float> vector, const int LENGTH){
+
+    // Mostrando a Média e inserindo no arquivo
+    cout << "Média do " << name << ": " << calc_average(vector, LENGTH) << " segundos." << endl;
+    file << "Média do " << name << ": " << calc_average(vector, LENGTH) << " segundos." << endl;
+
+    // Mostrando a Desvio Padrão e inserindo no arquivo
+    cout << "Desvio Padrão do " << name << ": " << calc_std_deviation(vector, LENGTH) << " segundos." << endl << endl;
+    file << "Desvio Padrão do " << name << ": " << calc_std_deviation(vector, LENGTH) << " segundos." << endl << endl;
+}
+
 int main(int argc, char** argv){
+    const int QUANT_RUNTIMES = 30;
 
-    std::vector<float> sequ_retr(30);
-    std::vector<float> parll_omp_retr(30);
-    std::vector<float> parll_tbb_retr(30);
+    vector<float> sequ_retr(QUANT_RUNTIMES);
+    vector<float> parll_omp_retr(QUANT_RUNTIMES);
+    vector<float> parll_tbb_retr(QUANT_RUNTIMES);
 
 
-    std::ofstream file("logs/log.txt");
+    ofstream file("logs/log.txt");
 
-    for(int i = 0; i < 30; i++){
-        // Mostrando o número da execução atual
-        std::cout << "Execução nº" << i+1 << ": " << std::endl;
-
-        // Armazenando o número da execução atual dentro do arquivo
-        file << "Execução nº" << i+1 << ": " << std::endl;
+    for(int i = 0; i < QUANT_RUNTIMES; i++){
+        // Mostrando o número da execução atual e o armazenando dentro do arquivo
+        cout << "Execução nº" << i+1 << ": " << endl;
+        file << "Execução nº" << i+1 << ": " << endl;
 
         // Atribuindo cada tempo de execução ao seu índice no vetor
-        sequ_retr[i] = sequential_runtime(std::pow(10, (atoi(argv[1]) || 8) ), file);
-        parll_omp_retr[i] = parallel_runtime_omp(std::pow(10, (atoi(argv[1]) || 4) ), file);
-        parll_tbb_retr[i] = parallel_runtime_tbb(std::pow(10, (atoi(argv[1]) || 4) ), file);
+        sequ_retr[i] = sequential_runtime(pow(10, (argv[1] ? atoi(argv[1]) : 8 ) ), file);
+        parll_omp_retr[i] = parallel_runtime_omp(pow(10, (argv[1] ? atoi(argv[1]) : 8 ) ), file);
+        parll_tbb_retr[i] = parallel_runtime_tbb(pow(10, (argv[1] ? atoi(argv[1]) : 8 ) ), file);
 
-        std::cout << std::endl;
-        file << std::endl;
+        cout << endl;
+        file << endl;
     }
 
-    std::cout << std::endl;
-    file << std::endl;
+    cout << endl;
+    file << endl;
 
-    // Mostrando a Média do Sequencial e inserindo no arquivo
-    std::cout << "Média do Sequencial: " << calc_average(sequ_retr, 30) << " segundos." << std::endl;
-    file << "Média do Sequencial: " << calc_average(sequ_retr, 30) << " segundos." << std::endl;
+    // Mostrando a Média e o Desvio Padrão do Sequencial e inserindo no arquivo
+    show_average_deviation(file, "Sequencial", sequ_retr, QUANT_RUNTIMES);
 
-    // Mostrando a Desvio Padrão do Sequencial e inserindo no arquivo
-    std::cout << "Desvio Padrão do Sequencial: " << calc_std_deviation(sequ_retr, 30) << " segundos." << std::endl << std::endl;
-    file << "Desvio Padrão do Sequencial: " << calc_std_deviation(sequ_retr, 30) << " segundos." << std::endl << std::endl;
+    // Mostrando a Média e o Desvio Padrão do Paralelo (openmp) e inserindo no arquivo
+    show_average_deviation(file, "Paralelo (openmp)", parll_omp_retr, QUANT_RUNTIMES);
 
-    // Mostrando a Média do Paralelo (openmp) e inserindo no arquivo
-    std::cout << "Média do Paralelo (openmp): " << calc_average(parll_omp_retr, 30) << " segundos." << std::endl;
-    file << "Média do Paralelo (openmp): " << calc_average(parll_omp_retr, 30) << " segundos." << std::endl;
+    // Mostrando a Média e o Desvio Padrão do Paralelo (tbb) e inserindo no arquivo
+    show_average_deviation(file, "Paralelo (tbb)", parll_tbb_retr, QUANT_RUNTIMES);
 
-    // Mostrando a Desvio Padrão do Paralelo (openmp) e inserindo no arquivo
-    std::cout << "Desvio Padrão do Paralelo (openmp): " << calc_std_deviation(parll_omp_retr, 30) << " segundos." << std::endl << std::endl;
-    file << "Desvio Padrão do Paralelo (openmp): " << calc_std_deviation(parll_omp_retr, 30) << " segundos." << std::endl << std::endl;
-
-    // Mostrando a Média do Paralelo (tbb) e inserindo no arquivo
-    std::cout << "Média do Paralelo (tbb): " << calc_average(parll_tbb_retr, 30) << " segundos." << std::endl;
-    file << "Média do Paralelo (tbb): " << calc_average(parll_tbb_retr, 30) << " segundos." << std::endl;
-
-    // Mostrando a Desvio Padrão do Paralelo (tbb) e inserindo no arquivo
-    std::cout << "Desvio Padrão do Paralelo (tbb): " << calc_std_deviation(parll_tbb_retr, 30) << " segundos." << std::endl << std::endl;
-    file << "Desvio Padrão do Paralelo (tbb): " << calc_std_deviation(parll_tbb_retr, 30) << " segundos." << std::endl << std::endl;
 
     file.close(); // Fechando o arquivo aberto
 
