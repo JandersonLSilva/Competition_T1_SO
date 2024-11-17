@@ -1,4 +1,4 @@
-# Trabalho Proposto Durante as Aulas de Sistemas Operacionais Para Implementação e Comparação Entre Desempenhos de Abordagens Sequenciaias e Paralelas. 
+Implementação e Comparação Entre Desempenhos de Abordagens Sequenciaias e Paralelas. 
 
 ## Tecnologias Utilizadas:
 [C++]
