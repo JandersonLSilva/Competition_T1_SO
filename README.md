@@ -1,4 +1,32 @@
-# Relatório Técnico
+# Trabalho Proposto Durante as Aulas de Sistemas Operacionais Para Implementação e Comparação Entre Desempenhos de Abordagens Sequenciaias e Paralelas. 
+
+## Tecnologias Utilizadas:
+[C++]
+[Python]
+
+## Bibliotecas Utilizadas:
+### Em C++:
+[iostream]
+[vector]
+[chrono]
+[math.h]
+[omp.h]
+[tbb/tbb.h]
+[fstream]
+
+### Em Python:
+[re]
+[pandas]
+[tabulate]
+[matplotlib.pyplot]
+[numpy]
+
+## Como funciona os algoritmos
+Primeiramente é utilizado o comando `g++ -o exec competition.cpp -fopenmp -ltbb` para compilar o algoritmo, depois 'no termial do Linux Ubuntu' ao executa-lo pode ser passado 1 argumento, dessa forma: `./exec 7`, se for passado, esse será o valor utilizado como expoente de 10, sendo o resultado o tamanho do vetor utilizado para fazer a soma dos valores, se não, o algoritmo usa por padrão 8.
+
+Durante a execução do algoritmo `competition.cpp` são utilizados tecnicas para medir o tempo de cada abordagem, depois são armazenados 30 tempos de execuções dentro de um vetor para cada abordagem e calculados as médias e desvio padrão dessas 30 execuções, por fim é ultilizado a biblioteca `fstream` para inserir dentro de um arquivo aberto todas impressões feitas na tela do terminal.
+
+Após isso, pode então ser executado o algoritmo `runtimes_graphic.py` que utilizara o arquivo `competition_output.txt` gerado na pasta `/output` para extrair os tempos de execuções, e posteriormente serem usados para plotar o gráfico, com os dados extraídos o algoritmo gera uma tabela com esses dados, mostra na tela e também salva no arquivo `runtimes_table.txt` dentro da pasta `/output` a tabela gerada, por fim, é gerado os gráficos com os dados extraídos, salvo na pasta `/output` como `runtimes_graphic.png` e mostrado na tela o gráfico.
 
 ## Introdução ao Problema e Objetivo do Exercício
 
