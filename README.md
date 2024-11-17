@@ -2,23 +2,34 @@
 
 ## Tecnologias Utilizadas:
 [C++]
+
 [Python]
 
 ## Bibliotecas Utilizadas:
 ### Em C++:
 [iostream]
+
 [vector]
+
 [chrono]
+
 [math.h]
+
 [omp.h]
+
 [tbb/tbb.h]
+
 [fstream]
 
 ### Em Python:
 [re]
+
 [pandas]
+
 [tabulate]
+
 [matplotlib.pyplot]
+
 [numpy]
 
 ## Como funciona os algoritmos
