@@ -121,7 +121,7 @@ Após esse calculo percebe-se uma vantagem entre os tempos de execuções com ab
 
 ### Gráfico da 30 execuções para cada abordagem
 
-![runtimes_graphic.png](outputs/runtimes_graphic.png)
+![runtimes_graphic.png](output/runtimes_graphic.png)
 
 ## Discussão dos Resultados
 
