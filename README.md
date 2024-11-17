@@ -33,7 +33,7 @@
 [numpy]
 
 ## Como funciona os algoritmos
-Primeiramente é utilizado o comando `g++ -o exec competition.cpp -fopenmp -ltbb` para compilar o algoritmo, depois 'no termial do Linux Ubuntu' ao executa-lo pode ser passado 1 argumento, dessa forma: `./exec 7`, se for passado, esse será o valor utilizado como expoente de 10, sendo o resultado o tamanho do vetor utilizado para fazer a soma dos valores, se não, o algoritmo usa por padrão 8.
+Primeiramente é utilizado o comando `g++ -o exec competition.cpp -fopenmp -ltbb` para compilar o algoritmo, depois (no termial do Linux Ubuntu) ao executa-lo pode ser passado 1 argumento, dessa forma: `./exec 7`, se for passado, esse será o valor utilizado como expoente de 10, sendo o resultado o tamanho do vetor utilizado para fazer a soma dos valores, se não, o algoritmo usa por padrão 8.
 
 Durante a execução do algoritmo `competition.cpp` são utilizados tecnicas para medir o tempo de cada abordagem, depois são armazenados 30 tempos de execuções dentro de um vetor para cada abordagem e calculados as médias e desvio padrão dessas 30 execuções, por fim é ultilizado a biblioteca `fstream` para inserir dentro de um arquivo aberto todas impressões feitas na tela do terminal.
 
