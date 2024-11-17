@@ -35,7 +35,7 @@
 ## Como funciona os algoritmos
 Primeiramente é utilizado o comando `g++ -o exec competition.cpp -fopenmp -ltbb` para compilar o algoritmo, depois (no termial do Linux Ubuntu) ao executa-lo pode ser passado 1 argumento, dessa forma: `./exec 7`, se for passado, esse será o valor utilizado como expoente de 10, sendo o resultado o tamanho do vetor utilizado para fazer a soma dos valores, se não, o algoritmo usa por padrão 8.
 
-Durante a execução do algoritmo `competition.cpp` são utilizados tecnicas para medir o tempo de cada abordagem, depois são armazenados 30 tempos de execuções dentro de um vetor para cada abordagem e calculados as médias e desvio padrão dessas 30 execuções, por fim é ultilizado a biblioteca `fstream` para inserir dentro de um arquivo aberto todas impressões feitas na tela do terminal.
+Durante a execução do algoritmo `competition.cpp` são utilizados técnicas para medir o tempo de cada abordagem, depois são armazenados 30 tempos de execuções dentro de um vetor para cada abordagem e calculádos as médias e desvio padrão dessas 30 execuções, por fim é ultilizado a biblioteca `fstream` para inserir dentro de um arquivo aberto todas impressões feitas na tela do terminal.
 
 Após isso, pode então ser executado o algoritmo `runtimes_graphic.py` que utilizara o arquivo `competition_output.txt` gerado na pasta `/output` para extrair os tempos de execuções, e posteriormente serem usados para plotar o gráfico, com os dados extraídos o algoritmo gera uma tabela com esses dados, mostra na tela e também salva no arquivo `runtimes_table.txt` dentro da pasta `/output` a tabela gerada, por fim, é gerado os gráficos com os dados extraídos, salvo na pasta `/output` como `runtimes_graphic.png` e mostrado na tela o gráfico.
 
@@ -51,21 +51,21 @@ O objetivo principal deste trabalho é avaliar o desempenho de diferentes aborda
 
 Para medir o tempo de execução de cada abordagem, foi utilizado o cronômetro de alta resolução da biblioteca C++ `chrono`. Que funciona da seguinte forma:
 
-Primeiro é armazenado o tempo de início numa varável start:
+Primeiro é armazenado o tempo de início numa variável `start`:
 
 ```cpp
 // Gravando o tempo no inicio da soma
 auto start = chrono::high_resolution_clock::now();
 ```
 
-Depois é armazenado o tempo final numa varável end:
+Depois é armazenado o tempo final numa variável `end`:
 
 ```cpp
 // Marcando o tempo no final da da soma
 auto end = chrono::high_resolution_clock::now();
 ```
 
-E por fim é feito subtração dos dois tempos para saber o intervalo de tempo, esse sendo o tempo de duração:
+E por fim é feito subtração dos dois tempos, para saber o intervalo de tempo, esse sendo o tempo de duração:
 
 ```cpp
 // Armazenando na váriavel duration do tipo double, definido dentro da classe duration
@@ -87,7 +87,7 @@ A diretiva `#pragma omp parallel for reduction(+:sum)` foi utilizada para parale
 
 A biblioteca TBB (Threading Building Blocks) oferece um modelo de programação mais flexível.
 
-Foi utilizada a função `parallel_for` para dividir o intervalo de índices do vetor em subintervalos, cada um sendo processado por uma thread. A soma parcial de cada thread foi armazenada em um vetor e, posteriormente, foi somado também cada valor do vetor soma parcial para obter o resultado final.
+Foi utilizada a função `parallel_for` para dividir o intervalo de índices do vetor em subintervalos, cada um sendo processado por uma thread. A soma parcial de cada thread foi armazenada em um vetor e, posteriormente, foi somado também cada valor do vetor a soma parcial para obter o resultado final.
 
 ```cpp
 // Definindo o intervalo de índices em que as threads vão trabalhar
@@ -109,7 +109,7 @@ auto h = [&](const blocked_range<int>r) {
 parallel_for(range, h);
 ```
 
-A função lambda acima, é uma função anônima que define o bloco a ser executado pelas threads, ela é passada como argumento da função `parallel_for`, juntamento com o range de índices a serem divididos. Onde realmente ocorre a execução de forma paralela.
+A função lambda acima, é uma função anônima que define o bloco a ser executado pelas threads, ela é passada como argumento da função `parallel_for`, juntamento com o range de índices a serem divididos, onde realmente ocorre a execução de forma paralela.
 
 ## Resultados
 
@@ -168,4 +168,4 @@ As implementações paralelas utilizando OpenMP e TBB apresentaram tempos de exe
 
 Os tempos de execução variam ligeiramente entre as diferentes execuções, mesmo para a mesma abordagem. Essa variação pode ser por causa de diversos fatores como, a concorrência de outros processos e a alocação de recursos pelo sistema operacional. Pode-se perceber que ouve um menor variação dos tempos de execução para a abordagem sequencial, mesmo que pequena, quando comparada a paralela usando a Threading Building Blocks.
 
-Esses resultados obtidos demonstra a maior eficácia da paralelização para operação de soma com vetores contra fazer isso de forma sequencial, concluindo então a importância de usar a paralelização em problemas de larga escala, já que isso pode ser um ganho suficientemente grande em relação ao outro tipo de abordagem.
+Esses resultados obtidos demonstra a maior eficácia da paralelização para operação de soma com vetores, contra fazer isso de forma sequencial, concluindo então a importância de usar a paralelização em problemas de larga escala, já que isso pode ser um ganho suficientemente grande em relação ao outro tipo de abordagem.
