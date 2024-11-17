@@ -32,18 +32,18 @@
 
 [numpy]
 
+## Introdução ao Problema e Objetivo do Exercício
+
+A princípio uma soma comum de vetores parece uma tarefa simples de se fazer, o que realmente é verdade, porém quando partimos para algoritmos mais complexos e sofisticados, essa não é uma tarefa muito fácil, principalmente se forem feitas de forma sequencial. Algoritmos complexos como de multiplicação de matrizes, algoritmos de ordenação e algoritmos de busca por exemplo, são algoritmos que foram construídos com base na soma de vetores, por isso é fundamental entender quais são as melhores abordagens para otimizar esse processos.
+
+O objetivo principal deste trabalho é avaliar o desempenho de diferentes abordagens para a soma de elementos de um vetor, comparando a execução sequencial com implementações paralelas utilizando as bibliotecas OpenMP e TBB, incluindo também o cálculo de média e desvio padrão dos tempos de execução e a criação de gráficos para a visualização dos dados, podendo assim avaliar melhor cada implementação ao longo de várias execuções.
+
 ## Como funciona os algoritmos
 Primeiramente é utilizado o comando `g++ -o exec competition.cpp -fopenmp -ltbb` para compilar o algoritmo, depois (no termial do Linux Ubuntu) ao executa-lo pode ser passado 1 argumento, dessa forma: `./exec 7`, se for passado, esse será o valor utilizado como expoente de 10, sendo o resultado o tamanho do vetor utilizado para fazer a soma dos valores, se não, o algoritmo usa por padrão 8.
 
 Durante a execução do algoritmo `competition.cpp` são utilizados técnicas para medir o tempo de cada abordagem, depois são armazenados 30 tempos de execuções dentro de um vetor para cada abordagem e calculádos as médias e desvio padrão dessas 30 execuções, por fim é ultilizado a biblioteca `fstream` para inserir dentro de um arquivo aberto todas impressões feitas na tela do terminal.
 
 Após isso, pode então ser executado o algoritmo `runtimes_graphic.py` que utilizara o arquivo `competition_output.txt` gerado na pasta `/output` para extrair os tempos de execuções, e posteriormente serem usados para plotar o gráfico, com os dados extraídos o algoritmo gera uma tabela com esses dados, mostra na tela e também salva no arquivo `runtimes_table.txt` dentro da pasta `/output` a tabela gerada, por fim, é gerado os gráficos com os dados extraídos, salvo na pasta `/output` como `runtimes_graphic.png` e mostrado na tela o gráfico.
-
-## Introdução ao Problema e Objetivo do Exercício
-
-A princípio uma soma comum de vetores parece uma tarefa simples de se fazer, o que realmente é verdade, porém quando partimos para algoritmos mais complexos e sofisticados, essa não é uma tarefa muito fácil, principalmente se forem feitas de forma sequencial. Algoritmos complexos como de multiplicação de matrizes, algoritmos de ordenação e algoritmos de busca por exemplo, são algoritmos que foram construídos com base na soma de vetores, por isso é fundamental entender quais são as melhores abordagens para otimizar esse processos.
-
-O objetivo principal deste trabalho é avaliar o desempenho de diferentes abordagens para a soma de elementos de um vetor, comparando a execução sequencial com implementações paralelas utilizando as bibliotecas OpenMP e TBB, incluindo também o cálculo de média e desvio padrão dos tempos de execução e a criação de gráficos para a visualização dos dados, podendo assim avaliar melhor cada implementação ao longo de várias execuções.
 
 ## Descrição da Metodologia
 
