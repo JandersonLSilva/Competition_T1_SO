@@ -91,12 +91,13 @@ float parallel_runtime_tbb(const int LENGTH, ofstream& file){
     // Inicializando o array com os valores de i
     for(int i = 0; i < LENGTH; i++) array[i] = i;
 
+    // Definindo o intervalo de índices em que as threads vão trabalhar
     blocked_range<int> range(0, LENGTH);
 
     // Gravando o tempo no inicio da soma
     auto start = chrono::high_resolution_clock::now();
 
-    // Função anônima lambda que divide o bloco de execução em threads para serem executada de forma paralela
+    // Função anônima lambda que define o bloco de execução que será executada de forma paralela pelas threads posteriormente
     auto h = [&](const blocked_range<int>r) {
         int sum = 0;
         // Atribuindo o índice da thread da tarefa atual ao tid
@@ -108,6 +109,7 @@ float parallel_runtime_tbb(const int LENGTH, ofstream& file){
         // Somando a soma, feita pela thread atual, ao valor do índice tid da variável soma parcial
         partial_sums[tid] += sum;
     };
+
 
     parallel_for(range, h);
 
@@ -171,7 +173,7 @@ int main(int argc, char** argv){
     vector<float> parll_tbb_retr(QUANT_RUNTIMES);
 
 
-    ofstream file("logs/log.txt");
+    ofstream file("output/competition_output.txt");
 
     for(int i = 0; i < QUANT_RUNTIMES; i++){
         // Mostrando o número da execução atual e o armazenando dentro do arquivo

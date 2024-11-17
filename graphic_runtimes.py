@@ -26,6 +26,10 @@ def get_runtimes(file):
         )
     return runtimes
 
+def create_file(path, data):
+    with open(path, 'w') as file:
+        file.write(data)
+
 
 # Função que mostra os dados no formato de tabela
 def show_table(data):
@@ -33,11 +37,16 @@ def show_table(data):
     data_frame = pd.DataFrame(data)
 
     # Formatando a saida da tabela (DataFrame)
-    print(tab.tabulate(data_frame, headers='keys', tablefmt='grid', showindex=False))
+    table = tab.tabulate(data_frame, headers='keys', tablefmt='grid', showindex=False)
+    print(table)
+
+    # Criando um arquivo e armazenando nele a tabela
+    create_file('./output/runtimes_table.txt', table)
+
 
 
 # Atribuindo o retorno da função get_runtimes a variável runtimes
-runtimes = get_runtimes("./logs/log.txt")
+runtimes = get_runtimes("./output/competition_output.txt")
 LENGTH = len(runtimes.sequ)
 
 # Criando um array com os números de execuções
@@ -69,7 +78,7 @@ plt.plot(runs, runtimes_tbb, label='Parallel (tbb)')
 plt.plot(runs, runtimes_omp, label='Parallel (openmp)')
 
 # Definindo os rótulos para linhas e colunas do gráfico
-plt.xlabel('Run')
+plt.xlabel('Executions')
 plt.ylabel('Times (seconds)')
 
 # Definindo o titulo do gráfico
@@ -78,5 +87,8 @@ plt.title("Runtimes in 30 executions")
 # Adicionando uma legenda ao gráfico
 plt.legend()
 
-# Finalmente mostrando o gráfico
+# Salvando uma imagem do gráfico de execuções
+plt.savefig('./output/runtimes_graphic.png')
+
+# Finalmente mostrando o gráfico de execuções
 plt.show()
